@@ -70,11 +70,31 @@ social share open/close toggle
 })();
 
 /* =========================================================================
-social share open/close toggle
+Nav Toggles
 ========================================================================== */
 
 $(document).ready(function(){
+
   $('.js-nav-button').click(function(){
-   $('.js-nav-toggle').slideToggle('fast');
+
+    if ( $(window).width() < 800) {
+      $('.js-nav-toggle').css('width','100%');
+    }
+    else {
+      $('.js-nav-toggle').css('width','375px');
+    }
+
+   $('#overlay').css('display','block');
   });
+
+  $('.js-close-nav').click(function(){
+   $('.js-nav-toggle').css('width','0');
+   $('#overlay').css('display','none');
+  });
+
+  $('.js-sub-nav-button').click(function(){
+   $(this).parent().next('.js-sub-nav').slideToggle('fast');
+   $(this).toggleClass('active');
+  });
+
 });
