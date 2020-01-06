@@ -1,7 +1,7 @@
 
 /* avast, matey, acquire ye compass */
 @import "compass/css3", "compass/support", "../../shared/sass/utilities/functions", "../../shared/sass/utilities/mixins", "../../shared/sass/utilities/extends", "../../shared/sass/utilities/normalize.v4.2";
-
+@import '../../3461/shared/scss/social-icons';
 
 /*!
                 Title:    GoDaddy - FULL TB 2.0
@@ -169,6 +169,21 @@ Mixins
     @return #{$target/16.0}rem;
 }
 
+/*! =================================================================
+SVG's
+================================================================= */
+
+@function svg-color-replace($string, $search: '#', $replace: '%23') {
+    $index: str-index($string, $search);
+
+    @if $index {
+        @return str-slice($string, 1, $index - 1) + $replace + svg-color-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+    }
+    @return $string;
+}
+
+
+
 /* =================================================================
 animations
 ================================================================= */
@@ -179,6 +194,18 @@ animations
     to {
         background-position: 100% 0;
     }
+}
+
+@keyframes fadeIn {
+   0% {opacity: 0;}
+
+   100% {opacity: 1;}
+}
+
+@keyframes fadeOut {
+   0% {opacity: 1;}
+
+   100% {opacity: 0;}
 }
 
 
@@ -205,7 +232,7 @@ article,aside,details,figcaption,figure,footer,header,hgroup,main,menu,nav,secti
 }
 
 body {
-    line-height: $reset-line-height;
+    line-height: $line-height;
 }
 
 ol, ul {
@@ -317,6 +344,10 @@ a {
     }
 }
 
+p {
+  line-height: 1.5;
+}
+
 iframe, object, embed, video {
     width: 100%;
     height: auto;
@@ -376,20 +407,56 @@ a.access-link {
     }
 }
 
-.video-wrapper {
-    position: relative;
-    padding-bottom: 46.25%;
-    padding-top: 9.25%;
-    height: 0;
-    font-size: 0;
+// .video-wrapper {
+//     position: relative;
+//     padding-bottom: 46.25%;
+//     padding-top: 9.25%;
+//     height: 0;
+//     font-size: 0;
+//
+//     iframe, img {
+//         position: absolute;
+//         top: 0;
+//         left: 0;
+//         width: 100%;
+//         height: 100%;
+//     }
+// }
 
-    iframe, img {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
+.fancy-box-video {
+  position: relative;
+
+  &:after {
+    content: " ";
+    background: url("../v2_0/img/icons/play-button.png");
+    background-size: cover;
+    display: block;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top:50%;
+     left:50%;
+     transform: translateX(-50%) translateY(-50%);
+     @include breakpoint($end-small) {
+       width: 80px;
+       height: 80px;
+       transition: .3s;
+     }
+  }
+
+  &:hover, &:focus {
+
+    &:after {
+      transform: scale(1.1) translateX(-50%) translateY(-50%);
+      transition: .3s;
     }
+  }
+}
+
+.wrapper-small-pad {
+  padding: 0 20px;
+  max-width: 1440px;
+  margin: 0 auto;
 }
 
 .black-button {
@@ -403,6 +470,20 @@ a.access-link {
 	&:hover, &:focus {
 		background: #fff;
 		color: #000;
+	}
+}
+
+.black-outline-button {
+	background: #fff;
+	color: #000;
+	padding: 23px;
+	text-align: center;
+	transition: .5s;
+	border: 2px solid #000;
+
+	&:hover, &:focus {
+		background: #000;
+		color: #fff;
 	}
 }
 
@@ -459,9 +540,6 @@ Structure
     width: 100%;
     margin-top: 20px;
 
-    @include breakpoint($end-small) {
-        margin-top: 76px;
-    }
 }
 
 main {
@@ -538,233 +616,619 @@ Header & Navigation
 ================================================================= */
 
 header {
-	padding: 20px;
-	@include breakpoint($end-small) {
-		padding: 50px 20px;
-	}
+  padding: 20px;
+  max-width: 1640px;
+  margin: 0 auto;
+  @include breakpoint($end-small) {
+    padding: 50px 20px;
+  }
 
-	> div {
-		@include clearfix;
-	}
+  > div {
+    @include clearfix;
+  }
 
-	.logo {
-		display: inline-block;
-		max-width: 90px;
+  .logo {
+    display: inline-block;
+    max-width: 90px;
+    @include breakpoint($end-small) {
+      max-width: none;
+      float: left;
+    }
 
-		@include breakpoint($end-small) {
-			max-width: none;
-			float: left;
-		}
-
-		img {
-			width: 100%;
-		}
-	}
+    img {
+      width: 100%;
+    }
+  }
 }
 
 .navigation {
-	background: #fff;
-	height: 800px;
-	width: 0;
-	position: fixed;
-	z-index: 99;
-	top: 0;
-	left: 0;
-	overflow-x: hidden;
-	transition: .3s;
+  background: #fff;
+  height: 800px;
+  width: 0;
+  position: fixed;
+  z-index: 99;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+  transition: 0.3s;
+
+  > div {
+
+    padding: 40px 20px 75px;
+    -webkit-animation-name: fadeOut;
+    animation-name: fadeOut;
+    -webkit-animation-duration: .3s;
+    animation-duration: .3s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+
+    &.show {
+      -webkit-animation-name: fadeIn;
+      animation-name: fadeIn;
+      -webkit-animation-duration: .7s;
+      animation-duration: .7s;
+      -webkit-animation-fill-mode: both;
+      animation-fill-mode: both;
+    }
+  }
+  // Navigations logo
+  .logo {
+    float: none;
+    margin-bottom: 75px;
+    max-width: 120px;
+    @include breakpoint($end-small) {
+      max-width: none;
+    }
+  }
+
+  &__close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 0;
+    padding: 0;
+
+    &:after {
+      content: "\00D7";
+      font-size: 38px;
+      color: #545454;
+      display: block;
+    }
+  }
+
+  &__button {
+    font-size: 0;
+    width: 40px;
+    height: 23px;
+    display: block;
+    padding: 0;
+    float: right;
+    @include breakpoint($end-small) {
+      float: left;
+      margin: 10px 0 0 50px;
+    }
+
+    span {
+      background: $primary;
+      height: 3px;
+      width: 100%;
+      display: block;
+      margin-bottom: 7px;
+      transition: 0.4s;
+    }
+  }
+
+  &__list {
+    margin-bottom: 50px;
+  }
+
+  &__item {
+    margin-bottom: 30px;
+
+    &-toggle {
+      font-size: 55px;
+      color: $primary;
+      padding: 0;
+      position: relative;
+
+      &:after {
+        content: " ";
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        border-right: 4px solid black;
+        border-top: 4px solid black;
+        transform: rotate(45deg);
+        position: absolute;
+        top: 17px;
+        margin-left: 5px;
+        right: -34px;
+      }
+
+      &.active,
+      &:focus,
+      &:hover {
+        border-bottom: 5px solid #000;
+      }
+
+      &.active {
+        &:after {
+          content: " ";
+          display: inline-block;
+          width: 20px;
+          height: 20px;
+          border-right: 4px solid black;
+          border-bottom: 4px solid black;
+          border-top: none;
+          transform: rotate(45deg);
+          position: absolute;
+          top: 17px;
+          margin-left: 7px;
+          right: -34px;
+        }
+      }
+    }
+  }
+
+  &__link {
+    font-size: 55px;
+    color: $primary;
+
+    &:focus,
+    &:hover {
+      border-bottom: 5px solid #000;
+    }
+  }
+
+  &__sub-list {
+    display: none;
+    margin-bottom: 24px;
+
+    &-item {
+      margin-bottom: 10px;
+    }
+
+    &-link {
+      font-size: 17px;
+    }
+  }
+
+  .search-button {
+    font-size: 14px;
+    width: 200px;
+    display: block;
+    margin-bottom: 45px;
+  }
+
+  .secondary-nav {
+    &__item {
+      &:not(:last-of-type) {
+        margin-bottom: 20px;
+      }
+    }
+
+    &__link {
+      font-size: 18px;
+
+      &:focus,
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+/* =================================================================
+Footer
+================================================================= */
+
+.footer {
+  background: #111111;
+  padding: 40px 0 20px;
+  @include breakpoint($end-small) {
+    padding: 50px 0 40px;
+  }
+
+  > div {
+    padding: 0 20px;
+  }
+
+  // Footer Top
 
 
-	> div {
-		padding: 40px 20px 75px;
-	}
 
-	// Navigations logo
-	.logo {
-		float: none;
-		margin-bottom: 75px;
-		max-width: 120px;
-		@include breakpoint($end-small) {
-			max-width: none;
-		}
-	}
+  &__top {
+    border-bottom: 1px solid #404040;
+    padding: 0 0 30px;
 
-	&__close {
-		position: absolute;
-		top: 20px;
-		right: 20px;
-		font-size: 0;
-		padding: 0;
-
-		&:after {
-			content: "\00D7";
-			font-size: 38px;
-			color: #545454;
-			display: block;
-		}
-	}
+    > div {
+        max-width: 1600px;
+        margin: 0 auto;
+    }
+  }
 
 
-	&__button {
-		font-size: 0;
-		width: 40px;
-		height: 23px;
-		display: block;
-		padding: 0;
-		float: right;
-		@include breakpoint($end-small) {
-			float: left;
-			margin: 10px 0 0 50px;
-		}
+  &__guides-link {
+    display: inline-block;
+    font-size: 27px;
+    color: #fff;
+    position: relative;
 
-		span {
-			background: $primary;
-			height: 3px;
-			width: 100%;
-			display: block;
-			margin-bottom: 7px;
-			transition: 0.4s;
-		}
-	}
+    &-headline {
+      display: block;
+      background: linear-gradient(to right, #8d4cb4 0%, #2f5ea6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-size: 26px;
+      line-height: 1.25;
+      margin-bottom: 15px;
+    }
 
-	&__list {
-		margin-bottom: 50px;
-	}
+    &-sub-headline {
+      display: flex;
+      font-size: 27px;
+      color: #fff;
 
-	&__item {
-		margin-bottom: 30px;
+      .care-arrow {
+        display: inline-block;
+        width: 60px;
+        margin-left: 15px;
 
-		&-toggle {
-			font-size: 55px;
-			color: $primary;
-			padding: 0;
-			position: relative;
+        img {
+          width: 100%;
+        }
+      }
+    }
 
-			&:after {
-				content: " ";
-				display: inline-block;
-				width: 20px;
-	      height: 20px;
-	      border-right: 4px solid black;
-	      border-top: 4px solid black;
-	      transform: rotate(45deg);
-				position: absolute;
-				top: 17px;
-				margin-left: 5px;
-				right: -34px;
-			}
+    &:after {
+      @include breakpoint($end-small) {
+        content: " ";
+        display: block;
+        height: 3px;
+        width: 400px;
+        background: #fff;
+        position: absolute;
+        bottom: -32px;
+        border-radius: 3px;
+      }
+    }
+  }
 
-			&.active,
-			&:focus,
-			&:hover {
-				border-bottom: 5px solid #000;
-			}
+  .guides-arrow {
+    display: inline-block;
+    width: 40px;
 
-			&.active {
+    img {
+      width: 100%;
+    }
+  }
 
-				&:after {
-					content: " ";
-					display: inline-block;
-					width: 20px;
-					height: 20px;
-					border-right: 4px solid black;
-					border-bottom: 4px solid black;
-					border-top: none;
-					transform: rotate(45deg);
-					position: absolute;
-					top: 17px;
-					margin-left: 7px;
-					right: -34px;
-				}
-			}
-		}
-	}
+// Footer Middle
 
-	&__link {
-		font-size: 55px;
-		color: $primary;
+  &__middle {
+    border-bottom: 1px solid #404040;
+    padding: 30px 0;
 
-		&:focus,
-		&:hover {
-			border-bottom: 5px solid #000;
-		}
-	}
+     > div {
 
-	&__sub-list {
-		display: none;
-		margin-bottom: 24px;
+      @include breakpoint($end-small) {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        max-width: 1600px;
+        margin: 0 auto;
+      }
 
-		&-item {
-			margin-bottom: 10px;
-		}
+      &:nth-child(2) {
+        margin-top: 50px;
+        @include breakpoint($end-small) {
+          align-items: center;
+        }
+      }
+    }
 
-		&-link {
-			font-size: 17px;
-		}
-	}
 
-	.search-button {
-		font-size: 14px;
-		width: 200px;
-		display: block;
-		margin-bottom: 45px;
-	}
+  }
 
-	.secondary-nav {
 
-			&__item {
+  &__col {
+    &:not(:last-of-type) {
+      margin: 0 0 30px;
+    }
 
-				&:not(:last-of-type) {
-					margin-bottom: 20px;
-				}
-			}
+    @include breakpoint($end-small) {
+      width: 33.3%;
+    }
+    @include breakpoint(1000px) {
+      width: auto;
+    }
+  }
 
-			&__link {
-				font-size: 18px;
+  &__button {
+    color: #fff;
+    padding: 0;
+    font-size: 18px;
+    display: block;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    line-height: 1.25;
+    @include breakpoint($end-small) {
+      cursor: none;
+      pointer-events: none;
+    }
 
-				&:hover, &:focus {
-					text-decoration: underline;
-				}
-			}
-	}
+    &:after {
+      content: "\002B";
+      float: right;
+      @include breakpoint($end-small) {
+        display: none !important;
+      }
+    }
+
+    &.active {
+      &:after {
+        content: "\2212";
+        float: right;
+        @include breakpoint($end-small) {
+          display: none !important;
+        }
+      }
+    }
+  }
+
+  &__list {
+    margin: 30px 0 0;
+    display: none;
+    @include breakpoint($end-small) {
+      display: block !important;
+      margin: 20px 0 0;
+    }
+
+    &-item {
+      &:not(:last-of-type) {
+        margin-bottom: 15px;
+      }
+    }
+
+    &-link {
+      color: #fff;
+      text-transform: capitalize;
+      font-size: 16px;
+
+      &:hover, &:focus {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__logo {
+    display: block;
+    margin-bottom: 35px;
+    @include breakpoint($end-small) {
+      margin-bottom: 0;
+    }
+
+    svg {
+      width: 120px;
+      height: 27px;
+    }
+
+    .logo-mark-color {
+      fill: #fff;
+    }
+  }
+
+// Footer Bottom
+
+  &__bottom {
+    padding: 30px 0 0;
+
+    > div {
+      max-width: 1600px;
+      margin: 0 auto;
+      @include breakpoint($end-small) {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+  }
+
+  &__secondary-list {
+    margin-bottom: 40px;
+    @include breakpoint($end-small) {
+
+      margin-bottom: 0;
+    }
+
+    &-item {
+      margin-bottom: 15px;
+      @include breakpoint($end-small) {
+        display: inline-block;
+        margin-bottom: 0;
+        line-height: 1.5;
+        padding-right: 20px;
+      }
+    }
+
+    &-link {
+      color: #fff;
+      font-size: 13px;
+      &:hover, &:focus {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__copyright {
+    font-size: 13px;
+    color: #fff;
+    line-height: 1.25;
+  }
+}
+
+
+/* =================================================================
+HomePage
+================================================================= */
+
+.intro {
+  text-align: center;
+
+  &__headline {
+    font-size: 45px;
+    margin-bottom: 30px;
+    @include breakpoint($end-small) {
+      margin-bottom: 40px;
+      font-size: 100px;
+    }
+  }
+
+  &__sub-headline {
+    font-size: 20px;
+    font-weight: 100;
+    margin-bottom: 30px;
+    @include breakpoint($end-small) {
+      margin-bottom: 40px;
+      font-size: 25px;
+    }
+  }
+
+  &__link {
+    display: inline-block;
+    width: 255px;
+    font-size: 18px;
+    font-weight: 100;
+    margin-bottom: 40px;
+    @include breakpoint($end-small) {
+      margin-bottom: 100px;
+    }
+  }
 
 }
 
 
+.img-grid {
 
+  position: relative;
+
+  &__item {
+
+    &:nth-child(1) {
+      width: 80%;
+      max-width: 650px;
+      @include breakpoint(1300px) {
+        float: left;
+        width: inherit !important;
+      }
+    }
+
+    &:nth-child(2) {
+      width: 60%;
+      position: absolute;
+      bottom: -20px;
+      right: 0;
+      max-width: 580px;
+      @include breakpoint(1300px) {
+        text-align: right;
+        position: static;
+        width: inherit !important;
+        float: right;
+        margin-top: 80px;
+      }
+    }
+
+  }
+
+  &__img {
+    width: 100%;
+
+    @include breakpoint(1300px) {
+      width: auto;
+    }
+  }
+}
+
+
+.text-block {
+  clear: both;
+  max-width: 1300px;
+  margin: 0 auto;
+
+  &__wrap {
+    max-width: 850px;
+    margin: 0 auto;
+    &.padding {
+      padding: 0 20px;
+    }
+  }
+
+  &__headline {
+    font-size: 35px;
+    text-align: center;
+    margin-bottom: 20px;
+    @include breakpoint($end-small) {
+      font-size: 80px;
+    }
+  }
+
+  &__text {
+    font-weight: 100;
+    text-align: center;
+    font-size: 18px;
+    @include breakpoint($end-small) {
+      font-size: 20px;
+    }
+  }
+
+  &__media {
+    margin-top: 40px;
+    @include breakpoint($end-small) {
+      margin-top: 80px;
+    }
+    button {
+      padding: 0;
+    }
+
+    img {
+      width: 100%;
+    }
+  }
+}
 
 /* =================================================================
 site selector
 ================================================================= */
 .site-selector {
-    position: relative;
-    z-index: 100;
+  position: relative;
+  z-index: 100;
 
-    h2 {
-        cursor: pointer;
-        margin: 0;
-        padding: 10px 0;
+  h2 {
+    cursor: pointer;
+    margin: 0;
+    padding: 10px 0;
+  }
+
+  ul {
+    margin: 0;
+    list-style: none;
+    display: none;
+    position: absolute;
+    width: 100%;
+    background: #fff;
+
+    li {
+      &:not(:last-child) {
+        margin-bottom: 3px;
+      }
+
+      a {
+        display: block;
+      }
     }
-
-    ul {
-        margin: 0;
-        list-style: none;
-        display: none;
-        position: absolute;
-        width: 100%;
-        background: #fff;
-
-        li {
-            &:not(:last-child) {
-                margin-bottom: 3px;
-            }
-
-            a {
-                display: block;
-            }
-        }
-    }
+  }
 }
-
 /* =================================================================
 search form
 ================================================================= */
@@ -1596,81 +2060,58 @@ social share - need to update icon references to match shared resources
 social media - need to update icon references to match media resources
 ================================================================= */
 .social-media {
-    ul {
-        list-style: none;
-        margin: 0;
+	ul {
+		list-style: none;
+		margin: 0;
+    display: flex;
+    justify-content: space-around;
+    align-self: stretch;
+	}
+
+	li {
+		display: inline-block;
+
+		&:not(:last-of-type) {
+			padding-right: 5px;
+		}
+	}
+
+	a {
+		display: block;
+		text-indent: -999em;
+		overflow: hidden;
+		text-align: left;
+		background: center / contain no-repeat;
+		width: 35px;
+		height: 35px;
+
+    &.social-media-facebook, &.facebook {
+      background-position: 0px 2px !important;
     }
-
-    li {
-        display: inline-block;
-    }
-
-    a {
-        display: block;
-        height: 32px;
-        overflow: hidden;
-        text-align: left;
-        text-indent: -9999em;
-        width: 32px;
-
-        &:hover, &:focus {
-            box-shadow: 1px 1px 2px 0 rgba(0,0,0,.5);
-        }
-    }
+	}
 }
 
-.social-media-sprite, .social-media-facebook, .social-media-glassdoor, .social-media-googleplus, .social-media-instagram, .social-media-linkedin, .social-media-pinterest, .social-media-rss, .social-media-tumblr, .social-media-twitter, .social-media-viadeo, .social-media-xing, .social-media-youtube {
-    background-image: url("../../../img/core/social-media.png");
-    background-repeat: no-repeat
+.social-media {
+	a {
+		&.social-media-twitter {
+			@include icon-bg-twitter(#fff, none);
+		}
+
+		&.social-media-facebook {
+			@include icon-bg-facebook(#fff, none);
+      background-size: 80%;
+		}
+
+		&.social-media-youtube {
+			@include icon-bg-youtube(#fff, none);
+		}
+
+		&.social-media-linkedin{
+			@include icon-bg-linkedin(#fff, none);
+		}
+	}
 }
 
-.social-media-facebook {
-    background-position: 0 0
-}
-
-.social-media-glassdoor {
-    background-position: 0 -32px
-}
-
-.social-media-googleplus {
-    background-position: 0 -64px
-}
-
-.social-media-instagram {
-    background-position: 0 -96px
-}
-
-.social-media-linkedin {
-    background-position: 0 -128px
-}
-
-.social-media-pinterest {
-    background-position: 0 -160px
-}
-
-.social-media-rss {
-    background-position: 0 -192px
-}
-
-.social-media-tumblr {
-    background-position: 0 -224px
-}
-
-.social-media-twitter {
-    background-position: 0 -256px
-}
-
-.social-media-viadeo {
-    background-position: 0 -288px
-}
-
-.social-media-xing {
-    background-position: 0 -320px
-}
-
-.social-media-youtube {
-    background-position: 0 -352px
-}
 
 /* =================================================================
 profile module

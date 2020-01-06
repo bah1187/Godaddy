@@ -85,15 +85,29 @@ $(document).ready(function(){
     }
 
    $('#overlay').css('display','block');
+   $('.navigation > div').addClass('show')
   });
 
   $('.js-close-nav').click(function(){
    $('.js-nav-toggle').css('width','0');
    $('#overlay').css('display','none');
+   $('.navigation > div').removeClass('show')
   });
 
   $('.js-sub-nav-button').click(function(){
    $(this).parent().next('.js-sub-nav').slideToggle('fast');
+   $(this).toggleClass('active');
+  });
+
+});
+
+/* =========================================================================
+footer Toggles
+========================================================================== */
+$(document).ready(function(){
+
+  $('.js-footer-button').click(function(){
+   $(this).next('.footer__list').slideToggle('fast');
    $(this).toggleClass('active');
   });
 
