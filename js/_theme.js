@@ -45,7 +45,7 @@ slideout filters for search results on small screens
         animationSpeed: 200,
         pageWrapId: 'page',
         filterType: 'search',
-        openToggle: 'Filter',
+        openToggle: 'Filter Results',
         closeToggle: 'Close'
     });
 
