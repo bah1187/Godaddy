@@ -81,7 +81,7 @@ $(document).ready(function(){
       $('.js-nav-toggle').css('width','100%');
     }
     else {
-      $('.js-nav-toggle').css('width','375px');
+      $('.js-nav-toggle').css('width','625px');
     }
 
    $('#overlay').css('display','block');
