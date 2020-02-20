@@ -17,32 +17,72 @@
 custom fonts
 ================================================================= */
 
+
+
+
 // @font-face{
 // 	font-family:BookerlyDisplay-bold;
-// 	src:url(../fonts/BookerlyDisplay-bold.eot);
-// 	src:url(../fonts/BookerlyDisplay-bold.eot?#iefix) format("embedded-opentype"),
-// 	url(../fonts/BookerlyDisplay-bold.woff2) format("woff2"),
-// 	url(../fonts/BookerlyDisplay-bold.woff) format("woff"),
-// 	url(../fonts/BookerlyDisplay-bold.ttf) format("truetype");
+// 	src:url(../v2_0/fonts/BookerlyDisplay-Bold.eot);
+// 	src:url(../v2_0/fonts/BookerlyDisplay-Bold.eot?#iefix) format("embedded-opentype"),
+// 	url(../v2_0/fonts/BookerlyDisplay-Bold.woff2) format("woff2"),
+// 	url(../v2_0/fonts/BookerlyDisplay-Bold.woff) format("woff"),
+// 	url(../v2_0/fonts/BookerlyDisplay-Bold.ttf) format("truetype");
 // }
-
+//
 // @font-face{
 // 	font-family:Bookerly-light;
-// 	src:url(../fonts/Bookerly-light.eot);
-// 	src:url(../fonts/Bookerly-light.eot?#iefix) format("embedded-opentype"),
-// 	url(../fonts/Bookerly-light.woff2) format("woff2"),
-// 	url(../fonts/Bookerly-light.woff) format("woff"),
-// 	url(../fonts/Bookerly-light.ttf) format("truetype");
+// 	src:url(../v2_0/fonts/Bookerly-light.eot);
+// 	src:url(../v2_0/fonts/Bookerly-light.eot?#iefix) format("embedded-opentype"),
+// 	url(../v2_0/fonts/Bookerly-light.woff2) format("woff2"),
+// 	url(../v2_0/fonts/Bookerly-light.woff) format("woff"),
+// 	url(../v2_0/fonts/Bookerly-light.ttf) format("truetype");
 // }
-
+//
 // @font-face{
 // 	font-family:Bookerly-regular;
-// 	src:url(../fonts/Bookerly-regular.eot);
-// 	src:url(../fonts/Bookerly-regular.eot?#iefix) format("embedded-opentype"),
-// 	url(../fonts/Bookerly-regular.woff2) format("woff2"),
-// 	url(../fonts/Bookerly-regular.woff) format("woff"),
-// 	url(../fonts/Bookerly-regular.ttf) format("truetype");
+// 	src:url(../v2_0/fonts/Bookerly-regular.eot);
+// 	src:url(../v2_0/fonts/Bookerly-regular.eot?#iefix) format("embedded-opentype"),
+// 	url(../v2_0/fonts/Bookerly-regular.woff2) format("woff2"),
+// 	url(../v2_0/fonts/Bookerly-regular.woff) format("woff"),
+// 	url(../v2_0/fonts/Bookerly-regular.ttf) format("truetype");
 // }
+//
+// @font-face{
+// 	font-family:GDSherpa-regular;
+// 	src:url(../v2_0/fonts/GDSherpa-Regular.eot);
+// 	src:url(../v2_0/fonts/GDSherpa-Regular.eot?#iefix) format("embedded-opentype"),
+// 	url(../v2_0/fonts/GDSherpa-Regular.woff2) format("woff2"),
+// 	url(../v2_0/fonts/GDSherpa-Regular.woff) format("woff"),
+// 	url(../v2_0/fonts/GDSherpa-Regular.ttf) format("truetype");
+// }
+//
+// @font-face{
+// 	font-family:GDSherpa-bold;
+// 	src:url(../v2_0/fonts/GDSherpa-Bold.eot);
+// 	src:url(../v2_0/fonts/GDSherpa-Bold.eot?#iefix) format("embedded-opentype"),
+// 	url(../v2_0/fonts/GDSherpa-Bold.woff2) format("woff2"),
+// 	url(../v2_0/fonts/GDSherpa-Bold.woff) format("woff"),
+// 	url(../v2_0/fonts/GDSherpa-Bold.ttf) format("truetype");
+// }
+
+
+@font-face{
+	font-family:GDSherpa-bold;
+	src:url(https://tbcdn.talentbrew.com/company/7795/v2_0/fonts/GDSherpa-Bold.eot);
+	src:url(https://tbcdn.talentbrew.com/company/7795/v2_0/fonts/GDSherpa-Bold.eot?#iefix) format("embedded-opentype"),
+	url(https://tbcdn.talentbrew.com/company/7795/v2_0/fonts/GDSherpa-Bold.woff2) format("woff2"),
+	url(https://tbcdn.talentbrew.com/company/7795/v2_0/fonts/GDSherpa-Bold.woff) format("woff"),
+	url(https://tbcdn.talentbrew.com/company/7795/v2_0/fonts/GDSherpa-Bold.ttf) format("truetype");
+}
+
+@font-face{
+	font-family:GDSherpa-regular;
+	src:url(https://tbcdn.talentbrew.com/company/7795/v2_0/fonts/GDSherpa-regular.eot);
+	src:url(https://tbcdn.talentbrew.com/company/7795/v2_0/fonts/GDSherpa-regular.eot?#iefix) format("embedded-opentype"),
+	url(https://tbcdn.talentbrew.com/company/7795/v2_0/fonts/GDSherpa-regular.woff2) format("woff2"),
+	url(https://tbcdn.talentbrew.com/company/7795/v2_0/fonts/GDSherpa-regular.woff) format("woff"),
+	url(https://tbcdn.talentbrew.com/company/7795/v2_0/fonts/GDSherpa-regular.ttf) format("truetype");
+}
 
 @font-face{
 	font-family:Bookerly-light;
@@ -70,6 +110,9 @@ custom fonts
 	url(https://tbcdn.talentbrew.com/company/7795/v2_0/fonts/BookerlyDisplay-Bold.woff) format("woff"),
 	url(https://tbcdn.talentbrew.com/company/7795/v2_0/fonts/BookerlyDisplay-Bold.ttf) format("truetype");
 }
+
+
+
 
 
 
@@ -112,7 +155,7 @@ extends
 
 
 *[aria-hidden="true"] {
-    display: none !important;
+    display: none;
 }
 
 .hide {
@@ -417,25 +460,25 @@ a.access-link {
   }
 }
 
-.content-wrapper-small {
+.wrapper {
   padding: 0 20px;
+  max-width: 1370px;
+  margin: 0 auto;
+}
+
+.wrapper-med {
+	padding: 0 20px;
   max-width: 1440px;
   margin: 0 auto;
 }
 
-.content-wrapper-max {
+.wrapper-large {
   padding: 0 20px;
   max-width: 1790px;
   margin: 0 auto;
 }
 
 
-
-.wrapper-small {
-  padding: 0 20px;
-  max-width: 1440px;
-  margin: 0 auto;
-}
 
 .black-button {
 	background: #000;
@@ -545,13 +588,22 @@ a.access-link {
 	}
 
 
-  &__wrap {
+  &__textblock {
     max-width: 670px;
     margin: 0 auto;
-    padding: 0 20px;
+
+		#customer-care & {
+			max-width: 650px;
+			margin: 0 auto;
+		}
+
+		#corporate & {
+			max-width: 560px;
+			margin: 0 auto;
+		}
   }
 
-	&__wrap--large {
+	&__textblock--large {
 		  max-width: 900px;
 			margin: 0 auto;
 	}
@@ -559,9 +611,9 @@ a.access-link {
   &__headline {
     font-size: 35px;
     font-family: $headline-font;
-    text-align: center;
     margin-bottom: 20px;
-    line-height: 1;
+    text-align: center;
+    line-height: 1.2;
     @include breakpoint($end-small) {
       font-size: 80px;
       margin-bottom: 50px;
@@ -579,10 +631,15 @@ a.access-link {
     font-weight: 100;
     text-align: center;
     font-size: 18px;
+		max-width: 708px;
 		margin: 0 auto 15px;
     @include breakpoint($end-small) {
       font-size: 20px;
     }
+
+		// .content-page & {
+		// 	max-width: 650px;
+		// }
   }
 
   &__media {
@@ -598,6 +655,14 @@ a.access-link {
     img {
       width: 100%;
     }
+
+		&.overlap {
+			margin: 40px -20px 0;
+	    @include breakpoint($end-small) {
+	      margin: 80px auto 0;
+	    }
+		}
+
   }
 
   &__link {
@@ -610,6 +675,8 @@ a.access-link {
   }
 
 }
+
+
 
 /*! =================================================================
 Helpers
@@ -697,24 +764,7 @@ aside {
 }
 
 
-.wrapper {
-    @include clearfix;
-    max-width: $max-width;
-    width: 100%;
-    margin: 0 auto;
 
-    #error & {
-        padding: 20px;
-    }
-
-    @include breakpoint($end-small) {
-        width: 96%;
-    }
-
-    @include breakpoint($max-width) {
-        width: 100%;
-    }
-}
 
 /* =================================================================
 Overlay
@@ -767,14 +817,18 @@ header {
 
 .navigation {
   background: #fff;
-  height: 1000px;
+  height: 100%;
   width: 0;
   position: fixed;
   z-index: 99;
   top: 0;
   left: 0;
   overflow-x: hidden;
+  overflow-y: auto;
   transition: 0.3s;
+  @include breakpoint($end-small) {
+      max-height: 1000px;
+  }
 
   > div {
 
@@ -786,7 +840,7 @@ header {
     -webkit-animation-fill-mode: both;
     animation-fill-mode: both;
 		@include breakpoint($end-small) {
-			padding: 50px 0 0 80px;
+			padding: 50px 0 20px 80px;
 		}
 
     &.show {
@@ -962,6 +1016,9 @@ Footer
 
   > div {
     padding: 0 20px;
+		@include breakpoint($end-small) {
+			padding: 0;
+		}
   }
 
   // Footer Top
@@ -972,7 +1029,7 @@ Footer
     border-bottom: 1px solid #404040;
     padding: 0 0 30px;
 		@include breakpoint($end-small) {
-			padding: 0 0 60px;
+			padding: 0 20px 60px;
 		}
 
     > div {
@@ -1000,18 +1057,26 @@ Footer
 
     &-sub-headline {
       display: flex;
-      font-size: 27px;
+      align-items: center;
+      font-size: 25px;
       color: #fff;
-			font-family: $headline-font;
+	  font-family: $headline-font;
+
+	  @include breakpoint(350px) {
+	      font-size: 27px;
+	  }
+	   @include breakpoint($end-small) {
+	      font-size: 38px;
+	  }
 
       .care-arrow {
         display: inline-block;
         width: 60px;
+        height: 33px;
         margin-left: 15px;
+        background: url("../v2_0/img/care-arrow.png");
+        background-size: cover;
 
-        img {
-          width: 100%;
-        }
       }
     }
 
@@ -1020,14 +1085,14 @@ Footer
         content: " ";
         display: block;
         height: 3px;
-        width: 400px;
+        width: 520px;
         background: #fff;
         position: absolute;
         bottom: -32px;
         border-radius: 3px;
-				@include breakpoint($end-small) {
-					bottom: -62px;
-				}
+		@include breakpoint($end-small) {
+			bottom: -62px;
+		}
       }
     }
   }
@@ -1047,7 +1112,7 @@ Footer
     border-bottom: 1px solid #404040;
     padding: 30px 0;
 		@include breakpoint($end-small) {
-			padding: 60px 0 30px;
+			padding: 60px 20px 30px;
 		}
 
      > div {
@@ -1088,13 +1153,13 @@ Footer
   &__button {
     color: #fff;
     padding: 0;
-    font-size: 18px;
+    font-size: 14px;
     display: block;
     width: 100%;
     text-align: left;
     cursor: pointer;
     line-height: 1.25;
-		font-family: 'Bookerly-regular';
+		font-family: 'GDSherpa-bold', Helvetica;
     @include breakpoint($end-small) {
       cursor: none;
       pointer-events: none;
@@ -1124,14 +1189,14 @@ Footer
     display: none;
     @include breakpoint($end-small) {
       display: block !important;
-      margin: 25px 0 0;
+      margin: 20px 0 0;
     }
 
     &-item {
       &:not(:last-of-type) {
         margin-bottom: 15px;
 				@include breakpoint($end-small) {
-					margin-bottom: 10px;
+					margin-bottom: 6px;
 				}
       }
     }
@@ -1140,7 +1205,7 @@ Footer
       color: #fff;
       text-transform: capitalize;
       font-size: 12.5px;
-			font-family: 'Bookerly-light';
+			font-family: 'GDSherpa-regular', Helvetica;
 
       &:hover, &:focus {
         text-decoration: underline;
@@ -1171,7 +1236,7 @@ Footer
   &__bottom {
     padding: 30px 0 0;
 		@include breakpoint($end-small) {
-			padding: 40px 0 0;
+			padding: 40px 20px 0;
 		}
 
     > div {
@@ -1205,7 +1270,7 @@ Footer
     &-link {
       color: #fff;
       font-size: 13px;
-			font-family: 'Bookerly-light';
+			font-family: 'GDSherpa-regular', Helvetica;
       &:hover, &:focus {
         text-decoration: underline;
       }
@@ -1216,7 +1281,7 @@ Footer
     font-size: 13px;
     color: #fff;
     line-height: 1.25;
-		font-family: 'Bookerly-light';
+		font-family: 'GDSherpa-regular', Helvetica;
   }
 }
 
@@ -1262,10 +1327,29 @@ Banners
       font-weight: 100;
     }
 
-		.content-page & {
+		br {
+			display: none;
+			@include breakpoint(500px) {
+				display: block;
+			}
+		}
+
+		#customer-care &,
+		#corporate & {
 			text-align: left;
 			@include breakpoint($end-small) {
 				font-size: 66px;
+			}
+		}
+
+		#culture & {
+			font-size: 38px;
+			@include breakpoint($end-small) {
+				font-size: 66px;
+			}
+			@include breakpoint(1000px) {
+				font-size: 84px;
+				margin-bottom: 100px;
 			}
 		}
   }
@@ -1307,13 +1391,37 @@ Banners
 
 
 	&__img {
-		background: url("../v2_0/img/banner-customer-care.jpg");
-		background-size: cover;
-		padding-top: 74%;
-		@include breakpoint($end-small) {
-			padding-top: 480px;
-			background-position: center;
+
+		#customer-care & {
+			background: url("../v2_0/img/banner-customer-care.jpg");
+			background-size: cover;
+			padding-top: 74%;
+			@include breakpoint($end-small) {
+				padding-top: 480px;
+				background-position: center;
+			}
 		}
+
+		#corporate & {
+			background: url("../v2_0/img/banner-corporate.jpg");
+			background-size: cover;
+			padding-top: 74%;
+			@include breakpoint($end-small) {
+				padding-top: 480px;
+				background-position: center;
+			}
+		}
+
+		#culture & {
+			background: url("../v2_0/img/banner-culture.jpg");
+			background-size: cover;
+			padding-top: 56%;
+			margin: 0 -20px;
+			@include breakpoint($end-small) {
+				margin: 0;
+			}
+		}
+
 	}
 
 }
@@ -1405,10 +1513,11 @@ Image Collage Styling
 HomePage
 ================================================================= */
 
+// content section styles in general structure
 
 .green-callout {
 	background: $green;
-	padding: 50px 0;
+	padding: 50px 20px;
 	@include breakpoint($end-small) {
 		padding: 100px 0;
 	}
@@ -1428,158 +1537,253 @@ Content Row Sections
 ================================================================= */
 
 .content-rows {
-margin-bottom: 40px;
-@include breakpoint($end-small) {
-	margin-bottom: 100px;
-}
-// intro
-  &__intro {
-    clear: both;
-    background: #fff;
-    color: #000;
-    max-width: 675px;
-    margin: 0 auto 40px;
-    @include breakpoint($end-small) {
-      margin: 0 auto 100px;
-    }
+	margin-bottom: 40px;
+	@include breakpoint($end-small) {
+		margin-bottom: 100px;
+	}
 
-    &-headline {
-      font-size: 35px;
-      text-align: center;
-      margin-bottom: 20px;
-      line-height: 1;
-      font-family: $headline-font;
-      @include breakpoint($end-small) {
-        font-size: 80px;
-        margin-bottom: 50px;
-      }
-    }
+	// intro
+	&__intro {
+		clear: both;
+		background: #fff;
+		color: #000;
+		max-width: 675px;
+		margin: 0 auto 40px;
+		@include breakpoint($end-small) {
+			margin: 0 auto 100px;
+		}
 
-    &-text {
-      font-weight: 100;
-      text-align: center;
-      font-size: 18px;
-      margin-bottom: 15px;
-      @include breakpoint($end-small) {
-        font-size: 20px;
-      }
-    }
-  }
+		.content-page & {
+			max-width: none;
+		}
 
+		&-headline {
+			font-size: 35px;
+			text-align: center;
+			margin-bottom: 20px;
+			line-height: 1;
+			font-family: $headline-font;
+			@include breakpoint($end-small) {
+				font-size: 80px;
+				margin-bottom: 50px;
+			}
 
-  // Rows
+			.content-page & {
+				@include breakpoint($end-small) {
+					font-size: 50px;
+				}
+			}
+		}
 
-  &__row {
-  @include clearfix;
+		&-text {
+			font-weight: 100;
+			text-align: center;
+			font-size: 18px;
+			margin-bottom: 15px;
+			@include breakpoint($end-small) {
+				font-size: 20px;
+			}
+		}
+	}
 
-    &:not(:last-of-type) {
-      @include breakpoint($end-small) {
-          margin-bottom: 100px;
-        }
-    }
-  }
+	// Rows
+	&__row {
+		@include clearfix;
 
+		&:not(:last-of-type) {
+			@include breakpoint($end-small) {
+				margin-bottom: 100px;
+			}
+		}
+	}
 
-  &__text-block {
-    padding: 40px 20px;
-    @include breakpoint($end-small) {
-      height: 650px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+	&__text-block {
+		padding: 40px 0;
+		@include breakpoint($end-small) {
+			height: 650px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			padding: 40px 20px;
+		}
 
+		> div {
+			text-align: center;
+			@include breakpoint($end-small) {
+				text-align: left;
+			}
 
-    &_headline {
-      font-size: 35px;
-      margin-bottom: 20px;
-      text-align: center;
-      font-family: $headline-font;
-      @include breakpoint($end-small) {
-        font-size: 50px;
-      }
-    }
+			.content-page & {
+				text-align: left;
+			}
+		}
 
-    &_text {
-      font-size: 15px;
-      font-weight: 100;
-      text-align: center;
-      margin-bottom: 20px;
-      @include breakpoint($end-small) {
-        font-size: 20px;
-        text-align: left;
-      }
-    }
+		&_headline {
+			font-size: 35px;
+			margin-bottom: 20px;
+			font-family: $headline-font;
+			@include breakpoint($end-small) {
+				font-size: 50px;
+			}
 
-    &_link {
-      display: block;
-      width: 250px;
-      margin: 0 auto;
-      font-size: 18px;
-    }
-  }
+			#culture & {
+				font-family: $base-font;
+				font-size: 24px;
+				margin-bottom: 30px;
+				font-weight: bold;
+			}
+		}
 
+		&_text {
+			font-size: 15px;
+			font-weight: 100;
+			margin-bottom: 20px;
+			@include breakpoint($end-small) {
+				font-size: 20px;
+				text-align: left;
+			}
+		}
 
-  &__left {
-    @include breakpoint($end-small) {
-      float: left;
-      width: 50%;
-    }
+		&_list {
+			margin-left: 20px;
+		}
 
-    &.content-rows__text-block {
-      @include breakpoint(1200px) {
-        padding: 40px 87px 40px 0;
-      }
-    }
-  }
+		&_item {
+			list-style-type: disc;
+			font-size: 16px;
+			line-height: 1.8;
 
-  &__right {
-    @include breakpoint($end-small) {
-      float: right;
-      width: 50%;
-    }
+			&:not(:last-of-type) {
+				margin-bottom: 20px;
+			}
+		}
 
-    &.content-rows__text-block {
-      @include breakpoint(1200px) {
-        padding: 40px 0px 40px 140px;
-      }
-    }
-  }
+		&_link {
+			display: block;
+			width: 250px;
+			margin: 0 auto;
+			font-size: 18px;
+			@include breakpoint(1200px) {
+				margin: 0;
+			}
 
+			.content-page & {
+				margin: 0;
+			}
+		}
+	}
 
-  &__img {
-    background: url("../v2_0/img/customer-care.jpg");
-    background-size: cover;
-    padding-top: 100%;
-    background-position: center;
-    @include breakpoint($end-small) {
-      padding-top: 650px;
-    }
+	&__left {
+		@include breakpoint($end-small) {
+			float: left;
+			width: 50%;
+		}
 
-    &.customer-care {
-      background: url("../v2_0/img/customer-care.jpg");
-      background-size: cover;
-      background-position: center;
-    }
+		&.content-rows__text-block {
+			@include breakpoint(1200px) {
+				padding: 40px 75px 40px 0;
+			}
+		}
+	}
 
-    &.engineering {
-      background: url("../v2_0/img/engineering.jpg");
-      background-size: cover;
-      background-position: center;
-    }
+	&__right {
+		@include breakpoint($end-small) {
+			float: right;
+			width: 50%;
+		}
 
-    &.corporate {
-      background: url("../v2_0/img/corporate.jpg");
-      background-size: cover;
-      background-position: center;
-    }
+		&.content-rows__text-block {
+			@include breakpoint(1200px) {
+				padding: 40px 0 40px 140px;
+			}
+		}
+	}
 
-    &.university {
-      background: url("../v2_0/img/university.jpg");
-      background-size: cover;
-      background-position: center;
-    }
-  }
+	&__img {
+		background-size: cover;
+		padding-top: 100%;
+		background-position: center;
+		@include breakpoint($end-small) {
+			padding-top: 650px;
+		}
+		// home
+		&.customer-care {
+			background: url("../v2_0/img/customer-care.jpg");
+			background-size: cover;
+			background-position: center;
+		}
+
+		&.engineering {
+			background: url("../v2_0/img/engineering.jpg");
+			background-size: cover;
+			background-position: center;
+		}
+
+		&.corporate {
+			background: url("../v2_0/img/corporate.jpg");
+			background-size: cover;
+			background-position: center;
+		}
+
+		&.university {
+			background: url("../v2_0/img/university.jpg");
+			background-size: cover;
+			background-position: center;
+		}
+		// culture
+		&.financial {
+			background: url("../v2_0/img/office-stairs.jpg");
+			background-size: cover;
+			background-position: center;
+		}
+
+		&.health {
+			background: url("../v2_0/img/man-drinking-coffee.jpg");
+			background-size: cover;
+			background-position: center;
+		}
+
+		&.rewards {
+			background: url("../v2_0/img/laptop-on-couch.jpg");
+			background-size: cover;
+			background-position: center;
+		}
+		// Locations
+		&.sunnyvale {
+			background: url("../v2_0/img/sunnyvale.jpg");
+			background-size: cover;
+			background-position: center;
+		}
+
+		&.beeston {
+			background: url("../v2_0/img/beeston.jpg");
+			background-size: cover;
+			background-position: center;
+		}
+
+		&.scottsdale {
+			background: url("../v2_0/img/scottsdale.jpg");
+			background-size: cover;
+			background-position: center;
+		}
+
+		&.kirkland {
+			background: url("../v2_0/img/kirkland.jpg");
+			background-size: cover;
+			background-position: center;
+		}
+	}
+
+	&__external-link {
+		text-align: center;
+
+		a {
+			color: #09757a;
+			display: inline-block;
+			text-align: center;
+			text-decoration: underline;
+		}
+	}
 }
 
 /* =================================================================
@@ -1648,11 +1852,12 @@ search form
 ================================================================= */
 .search-form {
     clear: both;
-		position: relative;
-		margin-bottom: 40px;
-		@include breakpoint($end-small) {
-			margin-bottom: 100px;
-		}
+	position: relative;
+	margin-bottom: 40px;
+
+	@include breakpoint($end-small) {
+		margin-bottom: 100px;
+	}
 
     p {
         margin: 0 1em .7em 0;
@@ -1686,12 +1891,14 @@ search form
     input, select {
         @extend %borderbox;
         border-bottom: 3px solid #acacac;
+        border-radius: 0;
         font-size: 16px;
         width: 100%;
         font-weight: 100;
-				padding-bottom: 7px;
+		padding-bottom: 7px;
+		-webkit-appearance: none;
 
-				@include breakpoint(450px) {
+		@include breakpoint(450px) {
           font-size: 20px;
         }
         @include breakpoint($end-small) {
@@ -2200,6 +2407,7 @@ search results - pagination
     border: 1px solid;
     text-align: center;
     margin-right: 5px;
+    max-width: 50px;
   }
 
    span {
@@ -2246,6 +2454,26 @@ search results - pagination
       margin-right: 10px;
     }
   }
+}
+
+.pagination-all {
+    text-align: center;
+    @include breakpoint($end-small) {
+        margin-left: 50px;
+    }
+}
+
+.pagination-show-all {
+    background: #000;
+    color: #fff;
+    font-size: 18px;
+    padding: 9px 10px;
+    font-weight: 100;
+    display: inline-block;
+    margin-top: 10px;
+    @include breakpoint(347px) {
+        margin-top: 0;
+    }
 }
 
 /* =================================================================
@@ -2475,7 +2703,7 @@ search results - search filters
         }
 
         .js & {
-            display: none;
+            display: none!important;
 
             &.expandable-childlist-open {
                 background: #fff;
@@ -2484,6 +2712,7 @@ search results - search filters
                   position: absolute;
                   z-index: 99;
                   width: 100%;
+                  display: block!important;
                 }
             }
         }
@@ -2667,6 +2896,7 @@ job alerts form
     float: right;
     text-transform: uppercase;
     color: #000;
+    font-weight: bold;
   }
 
   .submit {
@@ -2785,6 +3015,7 @@ job details - style overrides for ATS description
     h2 {
         font-size: 1.08em;
         margin: 0 0 .5em 0;
+        font-weight: bold;
     }
 
     p, div, span, font, b {
@@ -2801,6 +3032,14 @@ job details - style overrides for ATS description
 
     p, div {
         margin-bottom: 1em;
+    }
+
+    p {
+
+        a {
+            color: #0000EE !important;
+        }
+
     }
 
     ul, ol {
@@ -2827,7 +3066,7 @@ job details - style overrides for ATS description
 
 
 .job-description {
-	max-width: 1340px;
+	max-width: 890px;
 	margin: 0 auto;
 	padding: 0 20px;
 
@@ -2967,6 +3206,7 @@ job details - style overrides for ATS description
 Content Page Styles
 ================================================================= */
 
+// content section styles in general structure
 
 
 .content-intro {
@@ -2981,7 +3221,6 @@ Content Page Styles
   &__wrap {
     max-width: 715px;
     margin: 0 auto;
-    padding: 0 20px;
   }
 
   &__text {
@@ -2995,7 +3234,7 @@ Content Page Styles
 
   &__media {
     max-width: 1330px;
-    margin: 40px auto 0;
+    margin: 40px -20px 0;
     @include breakpoint($end-small) {
       margin: 80px auto 0;
     }
@@ -3007,8 +3246,148 @@ Content Page Styles
       width: 100%;
     }
   }
+}
+
+.text-grid {
+	margin-top: 30px;
+	@include breakpoint(700px) {
+	margin-top: 60px;
+	}
+	@include breakpoint(700px) {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+	}
+	&__item {
+		margin-bottom: 20px;
+		@include breakpoint(700px) {
+			width: 48%;
+			margin-bottom: 40px;
+		}
+		@include breakpoint(1200px) {
+			width: 29%;
+			margin-bottom: 60px;
+		}
+	}
+
+	&__heading {
+		font-weight: bold;
+		font-size: 19px;
+		margin-bottom: 15px;
+	}
+}
+
+.rc-hardcode {
+
+    &__list {
+        @include breakpoint($end-small) {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 80px;
+        }
+    }
+
+    &__item {
+        margin-bottom: 40px;
+
+        @include breakpoint($end-small) {
+            margin-bottom: 0;
+            width: 48.5%;
+        }
+
+        img {
+            width: 100%;
+            display: block;
+            margin-bottom: 30px;
+        }
+    }
+
+    &__headline {
+        font-weight: bold;
+        font-size: 26px;
+        margin-bottom: 20px;
+    }
+
+    &__text {
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+
+    &__link {
+        font-size: 16px;
+        color: #09757a;
+        text-decoration: underline;
+    }
+}
+
+// Locations page
+
+.locations {
+    @include breakpoint($end-small) {
+        max-width: 1000px;
+        margin: 0 auto 80px;
+    }
+
+
+    &__list {
+        @include breakpoint($end-small) {
+            @include clearfix;
+        }
+    }
+
+    &__item {
+        margin-bottom: 25px;
+        @include breakpoint($end-small) {
+            float: left;
+            width: 33%;
+        }
+    }
+
+    &__link {
+        color: #09747a;
+        font-size: 20px;
+        position: relative;
+        margin-left: 35px;
+
+        &:before {
+            content: " ";
+            display: inline-block;
+            background: url('../v2_0/img/icons/location-pin.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            width: 21px;
+            height: 26px;
+            position: absolute;
+            left: -32px;
+            top: -2px;
+        }
+    }
+
+    .slick-dots {
+        display: flex;
+        justify-content: center;
+
+        button {
+			display: block;
+			width: 8px;
+			height: 8px;
+			padding: 0;
+			margin: 0 6px;
+			border: none;
+			border-radius: 100%;
+			background-color: #b7b7b7;
+			text-indent: -9999px;
+		}
+    }
+
+		li.slick-active button {
+		background-color: #111111;
+	}
 
 }
+
+
+
 
 /* =================================================================
 language redirection
@@ -3159,7 +3538,7 @@ Secondary Pages
 
 #error {
 
-	.content-wrapper-small {
+	.wrapper {
 		padding: 0 20px 40px;
 		@include breakpoint($end-small) {
 			padding: 0 20px 60px;
@@ -3194,7 +3573,7 @@ Job Alert management page
 		font-size: 17px;
 	}
 
-	.content-wrapper {
+	.wrapper {
 		margin-top: 35px;
 	}
 
@@ -3325,7 +3704,7 @@ Job Alert Verify - Unsubscribe
 		}
 	}
 
-	.content-wrapper-small {
+	.wrapper {
 		padding: 11px 15px 40px;
 	}
 }

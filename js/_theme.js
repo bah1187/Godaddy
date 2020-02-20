@@ -86,12 +86,14 @@ $(document).ready(function(){
 
    $('#overlay').css('display','block');
    $('.navigation > div').addClass('show')
+   $('body').css('overflow','hidden');
   });
 
   $('.js-close-nav').click(function(){
    $('.js-nav-toggle').css('width','0');
    $('#overlay').css('display','none');
    $('.navigation > div').removeClass('show')
+   $('body').css('overflow','auto');
   });
 
   $('.js-sub-nav-button').click(function(){
@@ -112,3 +114,30 @@ $(document).ready(function(){
   });
 
 });
+
+
+/* =========================================================================
+Close dropdown on click outsdie
+========================================================================== */
+
+// $(document).ready( function(){
+
+// $(document).click( function(){
+//     $('.filter-label').removeClass('expandable-childlist-open');
+//     $('.expandable-parent').removeClass('expandable-child-open');
+//     $('.search-filter-list').removeClass('expandable-childlist-open');
+// });
+// });
+
+window.onclick = function(event) {
+  if (!event.target.matches('.expandable-parent')) {
+    var dropdowns = document.getElementsByClassName("search-filter-list");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('expandable-childlist-open')) {
+        $(".expandable-child-open").click();
+      }
+    }
+  }
+}
