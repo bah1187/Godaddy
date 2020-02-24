@@ -65,6 +65,24 @@ custom fonts
 // 	url(../v2_0/fonts/GDSherpa-Bold.ttf) format("truetype");
 // }
 
+// @font-face{
+// 	font-family:GDSage-Medium;
+// 	src:url(../v2_0/fonts/GDSage-Medium.eot);
+// 	src:url(../v2_0/fonts/GDSage-Medium.eot?#iefix) format("embedded-opentype"),
+// 	url(../v2_0/fonts/GDSage-Mediumwoff2) format("woff2"),
+// 	url(../v2_0/fonts/GDSage-Medium.woff) format("woff"),
+// 	url(../v2_0/fonts/GDSage-Medium.ttf) format("truetype");
+// }
+
+// @font-face{
+// 	font-family:GDSage-Bold;
+// 	src:url(../v2_0/fonts/GDSage-Bold.eot);
+// 	src:url(../v2_0/fonts/GDSage-Bold.eot?#iefix) format("embedded-opentype"),
+// 	url(../v2_0/fonts/GDSage-Bold.woff2) format("woff2"),
+// 	url(../v2_0/fonts/GDSage-Bold.woff) format("woff"),
+// 	url(../v2_0/fonts/GDSage-Bold.ttf) format("truetype");
+// }
+
 
 @font-face{
 	font-family:GDSherpa-bold;
@@ -111,6 +129,24 @@ custom fonts
 	url(https://tbcdn.talentbrew.com/company/7795/v2_0/fonts/BookerlyDisplay-Bold.ttf) format("truetype");
 }
 
+@font-face{
+	font-family:GDSage-Medium;
+	src:url(https://tbcdn.talentbrew.com/company/7795/v2_0/fonts/GDSage-Medium.eot);
+	src:url(https://tbcdn.talentbrew.com/company/7795/v2_0/fonts/GDSage-Medium.eot?#iefix) format("embedded-opentype"),
+	url(https://tbcdn.talentbrew.com/company/7795/v2_0/fonts/GDSage-Medium.woff2) format("woff2"),
+	url(https://tbcdn.talentbrew.com/company/7795/v2_0/fonts/GDSage-Medium.woff) format("woff"),
+	url(https://tbcdn.talentbrew.com/company/7795/v2_0/fonts/GDSage-Medium.ttf) format("truetype");
+}
+
+@font-face{
+	font-family:GDSage-Bold;
+	src:url(https://tbcdn.talentbrew.com/company/7795/v2_0/fonts/GDSage-Bold.eot);
+	src:url(https://tbcdn.talentbrew.com/company/7795/v2_0/fonts/GDSage-Bold.eot?#iefix) format("embedded-opentype"),
+	url(https://tbcdn.talentbrew.com/company/7795/v2_0/fonts/GDSage-Bold.woff2) format("woff2"),
+	url(https://tbcdn.talentbrew.com/company/7795/v2_0/fonts/GDSage-Bold.woff) format("woff"),
+	url(https://tbcdn.talentbrew.com/company/7795/v2_0/fonts/GDSage-Bold.ttf) format("truetype");
+}
+
 
 
 
@@ -138,8 +174,8 @@ $line-height: 1.25;
 $reset-line-height: 1;
 
 //Fonts
-$base-font: 'Helvetica', sans-serif;
-$headline-font: 'BookerlyDisplay-bold', sans-serif;
+$base-font: 'GDSherpa-regular', sans-serif;
+$headline-font: 'GDSage-Bold', sans-serif;
 
 /* =================================================================
 extends
@@ -601,6 +637,11 @@ a.access-link {
 			max-width: 560px;
 			margin: 0 auto;
 		}
+
+		#engineering & {
+			max-width: 685px;
+			margin: 0 auto;
+		}
   }
 
 	&__textblock--large {
@@ -615,7 +656,7 @@ a.access-link {
     text-align: center;
     line-height: 1.2;
     @include breakpoint($end-small) {
-      font-size: 80px;
+      font-size: 74px;
       margin-bottom: 50px;
     }
 
@@ -633,13 +674,7 @@ a.access-link {
     font-size: 18px;
 		max-width: 708px;
 		margin: 0 auto 15px;
-    @include breakpoint($end-small) {
-      font-size: 20px;
-    }
 
-		// .content-page & {
-		// 	max-width: 650px;
-		// }
   }
 
   &__media {
@@ -667,8 +702,9 @@ a.access-link {
 
   &__link {
     display: block;
-    width: 250px;
+    width: 200px;
     margin: 25px auto 0;
+		font-size: 14px;
     @include breakpoint($end-small) {
       margin: 60px auto 0;
     }
@@ -1319,7 +1355,7 @@ Banners
     font-family: $headline-font;
     @include breakpoint($end-small) {
       margin-bottom: 40px;
-      font-size: 100px;
+      font-size: 75px;
     }
 
     span {
@@ -1335,7 +1371,8 @@ Banners
 		}
 
 		#customer-care &,
-		#corporate & {
+		#corporate &,
+		#engineering & {
 			text-align: left;
 			@include breakpoint($end-small) {
 				font-size: 66px;
@@ -1361,14 +1398,18 @@ Banners
     margin-bottom: 30px;
     @include breakpoint($end-small) {
       margin-bottom: 40px;
-      font-size: 25px;
+      // font-size: 25px;
     }
+
+		.total-jobs-available, .total-cities-available {
+			font-family: 'GDSherpa-bold';
+		}
   }
 
   &__link {
     display: inline-block;
-    width: 255px;
-    font-size: 18px;
+    width: 200px;
+    font-size: 14px;
     font-weight: 100;
 
   }
@@ -1404,6 +1445,16 @@ Banners
 
 		#corporate & {
 			background: url("../v2_0/img/banner-corporate.jpg");
+			background-size: cover;
+			padding-top: 74%;
+			@include breakpoint($end-small) {
+				padding-top: 480px;
+				background-position: center;
+			}
+		}
+
+		#engineering & {
+			background: url("../v2_0/img/banner-engineering.jpg");
 			background-size: cover;
 			padding-top: 74%;
 			@include breakpoint($end-small) {
@@ -1623,7 +1674,7 @@ Content Row Sections
 			margin-bottom: 20px;
 			font-family: $headline-font;
 			@include breakpoint($end-small) {
-				font-size: 50px;
+				font-size: 46px;
 			}
 
 			#culture & {
@@ -1639,7 +1690,7 @@ Content Row Sections
 			font-weight: 100;
 			margin-bottom: 20px;
 			@include breakpoint($end-small) {
-				font-size: 20px;
+				font-size: 16px;
 				text-align: left;
 			}
 		}
@@ -1660,9 +1711,9 @@ Content Row Sections
 
 		&_link {
 			display: block;
-			width: 250px;
+			width: 200px;
 			margin: 0 auto;
-			font-size: 18px;
+			font-size: 14px;
 			@include breakpoint(1200px) {
 				margin: 0;
 			}
@@ -1798,19 +1849,19 @@ Search Results Callout
 
   &__headline {
     font-size: 30px;
-    font-weight: 100;
     text-align: center;
     margin-bottom: 20px;
     @include breakpoint($end-small) {
-      font-size: 40px;
+      font-size: 36px;
       margin-bottom: 40px;
     }
   }
 
   &__link {
     display: block;
-    width: 250px;
+    width: 200px;
     margin: 0 auto;
+		font-size: 14px;
   }
 
 }
@@ -2816,7 +2867,7 @@ job alerts form
     margin-bottom: 25px;
 		font-family: $headline-font;
     @include breakpoint($end-small) {
-      font-size: 50px;
+      font-size: 41well px;
       margin-bottom: 40px;
     }
   }
@@ -3387,6 +3438,103 @@ Content Page Styles
 }
 
 
+
+
+// Video Slider - University Page
+
+.video-slider {
+
+	.slick-arrow {
+		top: 50%;
+		transform: translateX(-50%);
+		opacity: 1;
+
+	}
+
+	.slick-prev {
+		left: 40px;
+		z-index: 9999;
+		background: url("../v2_0/img/left-slick-arrow.png");
+		height: 60px;
+		width: 60px;
+
+		&:before {
+			display: none;
+		}
+
+		&:hover, &:focus {
+			background: url("../v2_0/img/left-slick-arrow.png");
+		}
+	}
+
+	.slick-next {
+		right: 40px;
+		z-index: 9999;
+		background: url("../v2_0/img/right-slick-arrow.png");
+		height: 60px;
+		width: 60px;
+
+		&:before {
+			display: none;
+		}
+
+		&:hover, &:focus {
+			background: url("../v2_0/img/right-slick-arrow.png");
+		}
+	}
+
+
+
+
+	.intern-video {
+		transform: scale(.8);
+		transition: all 300ms ease;
+		position: relative;
+		padding: 0;
+		pointer-events: none;
+
+
+		&:before {
+			content: " ";
+			display: block;
+			height: 100%;
+			width: 100%;
+			background-color: rgba(0, 0, 0, 0.5);
+			position: absolute;
+		}
+
+		img {
+			width: 100%;
+		}
+
+		p {
+			margin-top: 30px;
+		}
+
+		&.slick-center {
+			transition: all 300ms ease;
+			transform: scale(1);
+			pointer-events: auto;
+
+			&:before {
+				display: none;
+			}
+
+			&:after {
+				content: " ";
+				background: url("../v2_0/img/icons/play-button.png");
+				background-size: cover;
+				display: block;
+				width: 50px;
+				height: 50px;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translateX(-50%) translateY(-50%);
+			}
+		}
+	}
+}
 
 
 /* =================================================================
