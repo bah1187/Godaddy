@@ -115,6 +115,18 @@ $(document).ready(function(){
 
 });
 
+/* =========================================================================
+filter toggle close & open
+========================================================================== */
+$(function() {
+   $('#search-filters .expandable-parent').click(function(){
+      $('.search-filter-list').not($(this).next()).removeClass('expandable-childlist-open');
+      $('#search-filters .expandable-parent').not($(this)).removeClass('expandable-child-open');
+      $('.search-filter-list').not($(this).next().attr('aria-hidden' , 'true'));
+      $('.search-filter-list').not($(this).next().attr('aria-expanded' , 'false'));
+    });
+});
+
 
 /* =========================================================================
 Close dropdown on click outsdie
@@ -140,4 +152,25 @@ window.onclick = function(event) {
       }
     }
   }
+}
+
+
+/* =========================================================================
+Lazy Load Video
+========================================================================== */
+
+$(".lazy-video a").click(function(e){
+    e.preventDefault();
+    var vidURL = $(this).attr('href');
+    var imgURL = $(this).find('img').attr('src');
+    var imgAlt = $(this).find('img').attr('alt');
+    var newVideo = '<div class="video-wrapper"><iframe src="' + vidURL + '?rel=0&autoplay=1&cc_load_policy=1&enablejsapi" allow="autoplay; fullscreen" title="' + imgAlt + '"></iframe></div>';
+    resetLazyVideo();
+    $(this).parent().addClass('active').append(newVideo);
+})
+// If a video is playing already, and a visitor clicks on another video on the same page, it will destroy the initial video and then load the new one.
+function resetLazyVideo(){
+  $('div.lazy-video.active').each(function(i){
+    $(this).removeClass('active').find('div.video-wrapper').remove();
+  })
 }

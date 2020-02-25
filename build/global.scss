@@ -267,6 +267,41 @@ animations
 }
 
 
+// Blue overlays that animate when element is in view
+
+
+.animated-overlay {
+		position: relative;
+
+		&:before {
+			content: " ";
+	    display: block ;
+	    height: 100%;
+	    width: 100%;
+	    background-color: #1bdbdb;
+			z-index: 9999;
+			position: absolute;
+			transition: all 2s;
+			top: 0;
+	}
+
+	&.go {
+
+			&:before {
+				content: " ";
+				display: block ;
+				height: 0;
+				width: 100%;
+				background-color: #1bdbdb;
+				z-index: 9999;
+				position: absolute;
+				transition: all 2s;
+		}
+	}
+}
+
+
+
 /* =================================================================
 default module styles
 ================================================================= */
@@ -466,32 +501,62 @@ a.access-link {
 }
 
 
-.fancy-box-video {
-  position: relative;
 
-  &:after {
-    content: " ";
-    background: url("../v2_0/img/icons/play-button.png");
-    background-size: cover;
-    display: block;
-    width: 50px;
-    height: 50px;
-    position: absolute;
-    top:50%;
-     left:50%;
-     transform: translateX(-50%) translateY(-50%);
-     @include breakpoint($end-small) {
-       width: 80px;
-       height: 80px;
-       transition: .3s;
-     }
+
+.lazy-video{
+  width:100%;
+
+	a {
+
+		&:after {
+			content: " ";
+			background: url("../v2_0/img/icons/play-button.png");
+			background-size: cover;
+			display: block;
+			width: 50px;
+			height: 50px;
+			position: absolute;
+			top:50%;
+			 left:50%;
+			 transform: translateX(-50%) translateY(-50%);
+			 @include breakpoint($end-small) {
+				 width: 80px;
+				 height: 80px;
+				 transition: .3s;
+			 }
+		}
+
+		&:hover, &:focus {
+
+			&:after {
+				transform: scale(1.1) translateX(-50%) translateY(-50%);
+				transition: .3s;
+			}
+		}
+}
+
+  .video-wrapper{
+    height: 0;
+    position: relative;
+    padding-top: 25px;
+    padding-bottom:56.25%;
+
+    iframe{
+        border: 0;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+      }
+  }
+  img{
+    width:100%;
   }
 
-  &:hover, &:focus {
-
-    &:after {
-      transform: scale(1.1) translateX(-50%) translateY(-50%);
-      transition: .3s;
+  &.active{
+    a{
+      display:none;
     }
   }
 }
@@ -891,8 +956,8 @@ header {
   // Navigations logo
   .logo {
     float: none;
-    margin-bottom: 75px;
-    width: 120px;
+    margin-bottom: 40px;
+    width: 60px;
     max-width: none;
     @include breakpoint($end-small) {
       max-width: none;
@@ -921,10 +986,11 @@ header {
     height: 23px;
     display: block;
     padding: 0;
-    float: right;
+		float: left;
+    margin: 4px 18px 0 0;
     @include breakpoint($end-small) {
       float: left;
-      margin: 10px 0 0 50px;
+      margin: 7px 0 0 50px;
     }
 
     span {
@@ -938,11 +1004,11 @@ header {
   }
 
   &__list {
-    margin-bottom: 50px;
+    margin-bottom: 35px;
   }
 
   &__item {
-    margin-bottom: 30px;
+    margin-bottom: 15px;
 
     &-toggle {
       font-size: 55px;
@@ -960,7 +1026,7 @@ header {
         border-top: 4px solid black;
         transform: rotate(45deg);
         position: absolute;
-        top: 31px;
+        top: 22px;
         margin-left: 5px;
         right: -34px;
       }
@@ -982,7 +1048,7 @@ header {
           border-top: none;
           transform: rotate(45deg);
           position: absolute;
-          top: 31px;
+          top: 22px;
           margin-left: 7px;
           right: -34px;
         }
@@ -1018,13 +1084,13 @@ header {
     font-size: 14px;
     width: 200px;
     display: block;
-    margin-bottom: 45px;
+    margin-bottom: 30px;
   }
 
   .secondary-nav {
     &__item {
       &:not(:last-of-type) {
-        margin-bottom: 20px;
+        margin-bottom: 13px;
       }
     }
 
@@ -1065,7 +1131,7 @@ Footer
     border-bottom: 1px solid #404040;
     padding: 0 0 30px;
 		@include breakpoint($end-small) {
-			padding: 0 20px 60px;
+			padding: 0 40px 60px;
 		}
 
     > div {
@@ -1148,7 +1214,7 @@ Footer
     border-bottom: 1px solid #404040;
     padding: 30px 0;
 		@include breakpoint($end-small) {
-			padding: 60px 20px 30px;
+			padding: 60px 40px 30px;
 		}
 
      > div {
@@ -1253,18 +1319,14 @@ Footer
     display: block;
     margin-bottom: 35px;
 		font-size: 0;
+		width: 120px;
     @include breakpoint($end-small) {
       margin-bottom: 0;
     }
 
-    svg {
-      width: 120px;
-      height: 27px;
-    }
-
-    .logo-mark-color {
-      fill: #fff;
-    }
+	  img {
+			width: 100%;
+		}
   }
 
 // Footer Bottom
@@ -1272,7 +1334,7 @@ Footer
   &__bottom {
     padding: 30px 0 0;
 		@include breakpoint($end-small) {
-			padding: 40px 20px 0;
+			padding: 40px 40px 0;
 		}
 
     > div {
@@ -1355,7 +1417,7 @@ Banners
     font-family: $headline-font;
     @include breakpoint($end-small) {
       margin-bottom: 40px;
-      font-size: 75px;
+      font-size: 74px;
     }
 
     span {
@@ -1369,6 +1431,14 @@ Banners
 				display: block;
 			}
 		}
+
+		#search & {
+			font-size: 45px;
+	    @include breakpoint($end-small) {
+	      font-size: 66px;
+	    }
+		}
+
 
 		#customer-care &,
 		#corporate &,
@@ -1398,7 +1468,7 @@ Banners
     margin-bottom: 30px;
     @include breakpoint($end-small) {
       margin-bottom: 40px;
-      // font-size: 25px;
+
     }
 
 		.total-jobs-available, .total-cities-available {
@@ -1417,6 +1487,7 @@ Banners
 
 	&__page-cite {
 		text-align: left;
+		font-size: 16px;
 	}
 
 
@@ -2754,7 +2825,8 @@ search results - search filters
         }
 
         .js & {
-            display: none!important;
+            // display: none!important;
+						display: none;
 
             &.expandable-childlist-open {
                 background: #fff;
@@ -2763,7 +2835,8 @@ search results - search filters
                   position: absolute;
                   z-index: 99;
                   width: 100%;
-                  display: block!important;
+                  // display: block!important;
+									display: block;
                 }
             }
         }
@@ -2856,10 +2929,24 @@ job alerts form
 	padding: 0 20px;
   max-width: 890px;
   margin: 0 auto 40px;
+	clear: both;
 	@include breakpoint($end-small) {
 		@include clearfix;
-		margin: 0 auto 75px;
+		margin: 0 auto 100px;
 	}
+
+	// #job & {
+	// 	@include breakpoint(600px) {
+	// 		&:before {
+	// 			content: " ";
+	// 			display: block;
+	// 			height: 2px;
+	// 			width: 1000px;
+	// 			background: #7e7e7e;
+	// 			margin: 0 auto 50px;
+	// 		}
+	// 	}
+	// }
 
   .form-display-heading {
     font-size: 30px;
@@ -2867,7 +2954,7 @@ job alerts form
     margin-bottom: 25px;
 		font-family: $headline-font;
     @include breakpoint($end-small) {
-      font-size: 41well px;
+      font-size: 41px;
       margin-bottom: 40px;
     }
   }
@@ -2960,7 +3047,7 @@ job alerts form
     button {
       display: block;
       width: 100%;
-      font-size: 18px;
+      font-size: 14px;
       padding: 10px;
       @include breakpoint($end-small) {
         // width: 200px;
@@ -3031,6 +3118,15 @@ Job Details page
 			font-size: 65px;
 		}
 	}
+
+	.jd-divider {
+		clear: both;
+		height: 2px;
+		background: #e7e7e7;
+		border: none;
+		margin: -33px auto 57px;
+		max-width: 1100px;
+	}
 }
 
 /* =================================================================
@@ -3055,7 +3151,7 @@ job details - style overrides for ATS description
         line-height: 1.5 !important;
 				font-size: 15px !important;
 				@include breakpoint($end-small) {
-					font-size: 20px !important;
+					font-size: 18px !important;
 				}
 
         &:not(br):empty {
@@ -3077,7 +3173,7 @@ job details - style overrides for ATS description
         text-indent: 0 !important;
 				line-height: 1.5 !important;
 				@include breakpoint($end-small) {
-					font-size: 20px !important;
+					font-size: 18px !important;
 				}
     }
 
@@ -3143,7 +3239,7 @@ job details - style overrides for ATS description
 			background: #000;
 			border: 1px solid #000;
 			color: #fff;
-			font-size: 15px;
+			font-size: 14px;
 			font-weight: 100;
 			padding: 15px;
 			width: 48%;
@@ -3151,8 +3247,8 @@ job details - style overrides for ATS description
 			text-align: center;
 			max-width: 160px;
 			@include breakpoint($end-small) {
-				font-size: 18px;
-				max-width: 250px;
+				font-size: 14px;
+				max-width: 200px;
 			}
 
 			&:after {
@@ -3221,6 +3317,10 @@ job details - style overrides for ATS description
 			margin-bottom: 35px;
 			@include breakpoint(400px) {
 				margin-bottom: 40px;
+			}
+			@include breakpoint(600px) {
+				float: left;
+				width: 350px;
 			}
 		}
 
@@ -3877,18 +3977,25 @@ maintenance page
 /* =================================================================
 social share - need to update icon references to match shared resources
 ================================================================= */
-.social-share {
-	max-width: 1340px;
-	margin: 0 auto 40px;
-	@include breakpoint($end-small) {
-		margin: 0 auto 75px;
+
+#social-share {
+	@include breakpoint(600px) {
+		float: left;
+		@include clearfix;
 	}
+}
+
+.social-share {
+	max-width: 1000px;
+	margin: 0 auto 40px;
+
 
 
 	ul {
+		max-width: 890px;
 		margin: 0 20px;
 		padding-bottom: 35px;
-		border-bottom: 1px solid #7e7e7e;
+
 	}
 
 	li {
