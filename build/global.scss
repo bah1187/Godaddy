@@ -731,6 +731,13 @@ a.access-link {
 				font-size: 50px;
 			}
 		}
+
+		br {
+			display: none;
+			@include breakpoint($end-small) {
+				display: block;
+			}
+		}
   }
 
   &__text {
@@ -775,6 +782,21 @@ a.access-link {
     }
   }
 
+}
+
+
+.divider {
+	clear: both;
+	height: 2px;
+	background: #e7e7e7;
+	border: none;
+	margin: -33px auto 75px;
+	max-width: 1330px;
+
+	#job & {
+		max-width: 1100px;
+		margin: -33px auto 57px;
+	}
 }
 
 
@@ -1442,7 +1464,8 @@ Banners
 
 		#customer-care &,
 		#corporate &,
-		#engineering & {
+		#engineering &,
+		#university & {
 			text-align: left;
 			@include breakpoint($end-small) {
 				font-size: 66px;
@@ -1526,6 +1549,16 @@ Banners
 
 		#engineering & {
 			background: url("../v2_0/img/banner-engineering.jpg");
+			background-size: cover;
+			padding-top: 74%;
+			@include breakpoint($end-small) {
+				padding-top: 480px;
+				background-position: center;
+			}
+		}
+
+		#university & {
+			background: url("../v2_0/img/banner-university.jpg");
 			background-size: cover;
 			padding-top: 74%;
 			@include breakpoint($end-small) {
@@ -1675,9 +1708,13 @@ Content Row Sections
 			margin: 0 auto 100px;
 		}
 
-		.content-page & {
-			max-width: none;
+		#university & {
+			max-width: 715px;
 		}
+
+		// .content-page & {
+		// 	max-width: none;
+		// }
 
 		&-headline {
 			font-size: 35px;
@@ -1716,6 +1753,11 @@ Content Row Sections
 			@include breakpoint($end-small) {
 				margin-bottom: 100px;
 			}
+		}
+
+		#university & {
+			max-width: 1110px;
+			margin: 0 auto;
 		}
 	}
 
@@ -1763,6 +1805,22 @@ Content Row Sections
 			@include breakpoint($end-small) {
 				font-size: 16px;
 				text-align: left;
+			}
+		}
+
+		&_blockquote {
+			font-size: 26px;
+			text-align: center;
+			@include breakpoint($end-small) {
+				font-size: 36px;
+				text-align: center;
+			}
+
+			cite {
+				display: block;
+				text-align: center;
+				font-size: 14px;
+				margin-top: 23px;
 			}
 		}
 
@@ -1818,6 +1876,21 @@ Content Row Sections
 			@include breakpoint(1200px) {
 				padding: 40px 0 40px 140px;
 			}
+
+			#university & {
+				@include breakpoint($end-small) {
+					width: 60%;
+					padding: 40px 0 40px 0;
+					// max-width: 480px;
+				}
+
+				> div {
+					@include breakpoint($end-small) {
+						max-width: 500px;
+					}
+				}
+			}
+
 		}
 	}
 
@@ -1894,6 +1967,23 @@ Content Row Sections
 			background-size: cover;
 			background-position: center;
 		}
+		// university
+		&.dana {
+			background: url("../v2_0/img/intern-dana.jpg");
+			background-size: cover;
+			background-position: center;
+			@include breakpoint($end-small) {
+				width: 40%;
+			}
+		}
+		&.jeff {
+			background: url("../v2_0/img/intern-jeff.jpg");
+			background-size: cover;
+			background-position: center;
+			@include breakpoint($end-small) {
+				width: 40%;
+			}
+		}
 	}
 
 	&__external-link {
@@ -1909,7 +1999,7 @@ Content Row Sections
 }
 
 /* =================================================================
-Search Results Callout
+ Callouts
 ================================================================= */
 
 .search-results-callout {
@@ -1936,6 +2026,33 @@ Search Results Callout
   }
 
 }
+
+.internship-callout {
+  margin-bottom: 55px;
+  @include breakpoint($end-small) {
+    margin-bottom: 100px;
+  }
+
+  &__headline {
+    font-size: 25px;
+    text-align: center;
+    margin-bottom: 20px;
+    @include breakpoint($end-small) {
+      font-size: 29px;
+      margin-bottom: 40px;
+    }
+  }
+
+  &__link {
+    display: block;
+    width: 200px;
+    margin: 0 auto;
+		font-size: 14px;
+  }
+
+}
+
+
 
 /* =================================================================
 site selector
@@ -3119,15 +3236,9 @@ Job Details page
 		}
 	}
 
-	.jd-divider {
-		clear: both;
-		height: 2px;
-		background: #e7e7e7;
-		border: none;
-		margin: -33px auto 57px;
-		max-width: 1100px;
-	}
+
 }
+
 
 /* =================================================================
 job details - style overrides for ATS description
@@ -3422,9 +3533,20 @@ Content Page Styles
 	}
 
 	&__heading {
-		font-weight: bold;
+    font-family: "GDSherpa-bold", sans-serif;
 		font-size: 19px;
 		margin-bottom: 15px;
+
+		#university & {
+			font-size: 16px;
+			@include breakpoint($end-small) {
+				font-size: 20px;
+			}
+		}
+	}
+
+	&__text {
+		font-size: 16px;
 	}
 }
 
@@ -3518,17 +3640,17 @@ Content Page Styles
         display: flex;
         justify-content: center;
 
-        button {
-			display: block;
-			width: 8px;
-			height: 8px;
-			padding: 0;
-			margin: 0 6px;
-			border: none;
-			border-radius: 100%;
-			background-color: #b7b7b7;
-			text-indent: -9999px;
-		}
+	    button {
+				display: block;
+				width: 8px;
+				height: 8px;
+				padding: 0;
+				margin: 0 6px;
+				border: none;
+				border-radius: 100%;
+				background-color: #b7b7b7;
+				text-indent: -9999px;
+			}
     }
 
 		li.slick-active button {
@@ -3543,6 +3665,11 @@ Content Page Styles
 // Video Slider - University Page
 
 .video-slider {
+	margin: 30px 0 85px !important;
+	@include breakpoint($end-small) {
+		margin: 90px 0 150px !important;
+	}
+
 
 	.slick-arrow {
 		top: 50%;
@@ -3584,6 +3711,10 @@ Content Page Styles
 	}
 
 
+.slick-dots {
+	bottom: -40px;
+}
+
 
 
 	.intern-video {
@@ -3608,7 +3739,9 @@ Content Page Styles
 		}
 
 		p {
-			margin-top: 30px;
+			position: absolute;
+			width: 100%;
+			margin: 10px auto 0;
 		}
 
 		&.slick-center {
@@ -3632,6 +3765,11 @@ Content Page Styles
 				left: 50%;
 				transform: translateX(-50%) translateY(-50%);
 			}
+
+			p {
+				position: static;
+			}
+
 		}
 	}
 }
