@@ -119,13 +119,27 @@ $(document).ready(function(){
 filter toggle close & open
 ========================================================================== */
 $(function() {
-   $('#search-filters .expandable-parent').click(function(){
+
+   // $('#search-filters .expandable-parent').click(function(){
+   //    $('.search-filter-list').not($(this).next()).removeClass('expandable-childlist-open');
+   //    $('#search-filters .expandable-parent').not($(this)).removeClass('expandable-child-open');
+   //    $('.search-filter-list').not($(this).next().attr('aria-hidden' , 'true'));
+   //    $('.search-filter-list').not($(this).next().attr('aria-expanded' , 'false'));
+   //
+   //  });
+
+    function closeFilter() {
       $('.search-filter-list').not($(this).next()).removeClass('expandable-childlist-open');
       $('#search-filters .expandable-parent').not($(this)).removeClass('expandable-child-open');
       $('.search-filter-list').not($(this).next().attr('aria-hidden' , 'true'));
       $('.search-filter-list').not($(this).next().attr('aria-expanded' , 'false'));
-    });
+    }
+
+    $('#search-filters .expandable-parent').click(closeFilter);
+
 });
+
+
 
 
 /* =========================================================================
@@ -141,18 +155,18 @@ Close dropdown on click outsdie
 // });
 // });
 
-window.onclick = function(event) {
-  if (!event.target.matches('.expandable-parent')) {
-    var dropdowns = document.getElementsByClassName("search-filter-list");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('expandable-childlist-open')) {
-        $(".expandable-child-open").click();
-      }
-    }
-  }
-}
+// window.onclick = function(event) {
+//   if (!event.target.matches('.expandable-parent')) {
+//     var dropdowns = document.getElementsByClassName("search-filter-list");
+//     var i;
+//     for (i = 0; i < dropdowns.length; i++) {
+//       var openDropdown = dropdowns[i];
+//       if (openDropdown.classList.contains('expandable-childlist-open')) {
+//         $(".expandable-child-open").click();
+//       }
+//     }
+//   }
+// }
 
 
 /* =========================================================================
@@ -174,3 +188,64 @@ function resetLazyVideo(){
     $(this).removeClass('active').find('div.video-wrapper').remove();
   })
 }
+
+
+/* =========================================================================
+Bar Graph
+========================================================================== */
+
+(function($) {
+ function generateBarGraph(wrapper) {
+   // Set Up Values Array
+   var values = [];
+
+   // Get Values and save to Array
+   $(wrapper + ' .bar').each(function(index, el) {
+     values.push($(this).data('value'));
+   });
+
+   // Get Max Value From Array
+     // Got .4 because graph starts at $.8 and ends at $1.20          working with $.40
+   var max_value = 0.4;
+
+   // Set width of bar to percent of max value
+   $(wrapper + ' .bar').each(function(index, el) {
+     var bar = $(this),
+         value = bar.data('value'),
+       //Minus .8 becuase chart starts at a minimum of $.80
+         percent = Math.ceil(((value - 0.8) / max_value) * 100);
+
+     // Set Width & Add Class
+     bar.width(percent + '%');
+     bar.addClass('in');
+   });
+ }
+
+ // Generate the bar graph on window load...
+ $(window).on('load', function(event) {
+
+   generateBarGraph('#dashboard-stats');
+
+ });
+})(jQuery); // Fully reference jQuery after this point.
+
+
+
+/* =========================================================================
+Tabbed Content
+========================================================================== */
+
+
+$(document).ready(function(){
+
+	$('ul.tabs li').click(function(){
+		var tab_id = $(this).attr('data-tab');
+
+		$(this).siblings().removeClass('current');
+    $(this).parent().nextAll('.tab-content').removeClass('current');
+		$(this).addClass('current');
+		$("#"+tab_id).addClass('current');
+
+	})
+
+});
